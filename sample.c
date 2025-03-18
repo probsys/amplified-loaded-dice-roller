@@ -9,6 +9,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 #include "aldr.h"
 
 int main(int argc, char **argv) {
@@ -16,6 +18,7 @@ int main(int argc, char **argv) {
         printf("usage: %s <n> <dist>\n", argv[0]);
         exit(0);
     }
+    srand(time(NULL));
     int num_samples = atoi(argv[1]);
 
     // Parse the distribution.

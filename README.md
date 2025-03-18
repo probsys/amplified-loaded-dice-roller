@@ -1,7 +1,7 @@
 # The Amplified Loaded Dice Roller
 
 This repository contains a reference implementation in C of the Amplified
-Loaded Dice Roller (ALDR), a fast algorithm for generating rolls an
+Loaded Dice Roller (ALDR), a fast algorithm for generating rolls of an
 $n$-sided die with rational probabilities.
 
 ## Building
