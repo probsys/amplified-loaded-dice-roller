@@ -1,0 +1,47 @@
+/*
+  Name:     sample.c
+  Purpose:  Command line interface for aldr.
+  Author:   CMU Probabilistic Computing Systems Lab
+  Copyright (C) 2025 CMU Probabilistic Computing Systems Lab, All Rights Reserved.
+
+  Released under Apache 2.0; refer to LICENSE.txt
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "aldr.h"
+
+int main(int argc, char **argv) {
+    if (argc < 3) {
+        printf("usage: %s num_samples ...distribution...\n", argv[0]);
+        exit(0);
+    }
+    int num_samples = atoi(argv[1]);
+
+    // Parse the distribution.
+    int n = argc - 2;
+    int *a = calloc(n, sizeof(*a));
+    for (int i = 0; i < n; ++i) {
+        a[i] = atoi(argv[i + 2]);
+    }
+
+    // Obtain the samples.
+    int *samples = calloc(num_samples, sizeof(*samples));
+    struct aldr_s x = aldr_preprocess(a, n);
+    for (int i = 0; i < num_samples; ++i) {
+        samples[i] = aldr_sample(&x);
+    }
+
+    // Print the samples.
+    for (int i = 0; i < num_samples; ++i) {
+        printf("%d ", samples[i]);
+    }
+    printf("\n");
+
+    // Free the heap.
+    free(a);
+    free(samples);
+    aldr_free(x);
+
+    return 0;
+}
