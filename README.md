@@ -12,7 +12,7 @@ The library can be built by running
 
 This command creates the following artifacts in the `build/` directory:
 
-| Folder                | Description                                     |
+| Path                  | Description                                     |
 | --------              | -------                                         |
 | `build/bin/aldr`      | Executable for command line interface to ALDR   |
 | `build/include`       | Header files for C programs that use ALDR       |
