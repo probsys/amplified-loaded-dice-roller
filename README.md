@@ -1,22 +1,23 @@
 # The Amplified Loaded Dice Roller
 
-This repository contains a reference implementation in C
-of the Amplified Loaded Dice Roller (ALDR),
-a fast algorithm for rolling an $n$-sided die.
+This repository contains a reference implementation in C of the Amplified
+Loaded Dice Roller (ALDR), a fast algorithm for generating rolls an
+$n$-sided die with rational probabilities.
 
-## Building and Installing
+## Building
 
 The library can be built by running
 
     $ make all
 
-This command creates several artifacts in the `build/` directory:
+This command creates the following artifacts in the `build/` directory:
 
-1. `build/lib/libaldr.a`: A static C library for C programs that use ALDR.
+| Folder                | Description                                     |
+| --------              | -------                                         |
+| `build/bin/aldr`      | Executable for command line interface to ALDR   |
+| `build/include`       | Header files for C programs that use ALDR       |
+| `build/lib/libaldr.a` | Static library for C programs that use ALDR     |
 
-1. `build/include`: Contains header files for C programs that use ALDR.
-
-1. `build/bin`: Contains the executable for a command line interface to ALDR.
 
 ## Usage
 
@@ -47,14 +48,15 @@ int main(int argc, char **argv) {
 
 ## Usage (Command Line Interface)
 
-The executable has the following command line interface:
+The executable in `build/bin/aldr` has the following command line interface:
 
 ```
-usage: ./build/bin/aldr num_samples ...distribution...
+usage: ./build/bin/aldr <n> <dist>
 ```
 
-where `num_samples` is the number of samples to draw;
-`...distribution...` is a space-separated list of positive integer weights.
+where `<n>` is an integer denoting the number of samples to draw; and
+`<dist>` is a space-separated list of positive integers weights for
+the desired discrete distribution.
 
 For example, to generate 90 samples from { 1, 1, 2, 3, 2 }, run the following:
 

@@ -13,7 +13,7 @@
 
 int main(int argc, char **argv) {
     if (argc < 3) {
-        printf("usage: %s num_samples ...distribution...\n", argv[0]);
+        printf("usage: %s <n> <dist>\n", argv[0]);
         exit(0);
     }
     int num_samples = atoi(argv[1]);
@@ -26,21 +26,15 @@ int main(int argc, char **argv) {
     }
 
     // Obtain the samples.
-    int *samples = calloc(num_samples, sizeof(*samples));
+    int sample;
     struct aldr_s x = aldr_preprocess(a, n);
     for (int i = 0; i < num_samples; ++i) {
-        samples[i] = aldr_sample(&x);
-    }
-
-    // Print the samples.
-    for (int i = 0; i < num_samples; ++i) {
-        printf("%d ", samples[i]);
+        printf("%d ", aldr_sample(&x));
     }
     printf("\n");
 
     // Free the heap.
     free(a);
-    free(samples);
     aldr_free(x);
 
     return 0;
