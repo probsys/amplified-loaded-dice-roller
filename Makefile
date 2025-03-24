@@ -1,4 +1,4 @@
-CFLAGS ?= -O3 -flto -march=native
+CFLAGS ?= -O3 -flto -march=native -Wno-unused-result
 
 all: libaldr.a sample.out
 	mkdir -p build/bin

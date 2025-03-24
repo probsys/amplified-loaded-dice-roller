@@ -9,17 +9,17 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <sys/random.h>
 
 #include "flip.h"
 
-// assume RAND_MAX is a Mersenne number
-uint32_t flip_k = 32 - __builtin_clz(RAND_MAX);
+uint32_t flip_k = 32;
 uint32_t flip_word = 0;
 uint32_t flip_pos = 0;
 
 void check_refill(void) {
     if (flip_pos == 0) {
-        flip_word = rand();
+        getrandom(&flip_word, sizeof(flip_word), 0);
         flip_pos = flip_k;
     }
 }
