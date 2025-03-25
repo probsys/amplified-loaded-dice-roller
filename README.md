@@ -8,7 +8,9 @@ $n$-sided die with rational probabilities.
 
 The library can be built by running
 
-    $ make all
+```sh
+make all
+```
 
 This command creates the following artifacts in the `build/` directory:
 
@@ -22,7 +24,8 @@ This command creates the following artifacts in the `build/` directory:
 ## Usage
 
 The following code from [examples/example.c](examples/example.c)
-shows how to use ALDR to sample from a distribution with given integer weights.
+shows how to use ALDR to sample from a distribution
+defined by a list of nonnegative integer weights.
 
 ```c
 #include <stdlib.h>

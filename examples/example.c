@@ -13,12 +13,12 @@
 #include "aldr.h"
 
 int main(int argc, char **argv) {
-    int num_samples = 90;
-    int *samples = calloc(num_samples, sizeof(*samples));
+    uint32_t num_samples = 90;
+    uint32_t *samples = calloc(num_samples, sizeof(*samples));
 
-    int distribution[5] = { 1, 1, 2, 3, 2 };
+    uint32_t distribution[5] = { 1, 1, 2, 3, 2 };
     struct aldr_s x = aldr_preprocess(distribution, 5);
-    for (int i = 0; i < num_samples; ++i) {
+    for (uint32_t i = 0; i < num_samples; ++i) {
         samples[i] = aldr_sample(&x);
         printf("%d ", samples[i]);
     }

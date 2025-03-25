@@ -8,7 +8,6 @@
 */
 
 #include <stdlib.h>
-#include <stdint.h>
 #include <sys/random.h>
 
 #include "flip.h"
