@@ -74,10 +74,10 @@ and count them as a histogram, run the following:
 ./build/bin/aldr 9000 1 1 2 3 2 | tr -d '\n' | tr ' ' '\n' | sort | uniq -c
 ```
 
-<!-- ## Experiments
+## Experiments
 
 Implementations of the experiments from the paper can be found at
-https://github.com/probsys/amplified-loaded-dice-roller-experiments. -->
+https://github.com/probsys/amplified-loaded-dice-roller-experiments.
 
 ## Related Repositories
 
