@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv) {
     if (argc < 3) {
-        printf("usage: %s <n> <dist>\n", argv[0]);
+        printf("usage: %s <num_samples> <distribution>\n", argv[0]);
         exit(0);
     }
     int num_samples = atoi(argv[1]);

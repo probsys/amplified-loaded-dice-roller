@@ -51,12 +51,15 @@ int main(int argc, char **argv) {
 The executable in `build/bin/aldr` has the following command line interface:
 
 ```
-usage: ./build/bin/aldr <n> <dist>
+usage: ./build/bin/aldr <num_samples> <distribution>
 ```
 
-where `<n>` is an integer denoting the number of samples to draw; and
-`<dist>` is a space-separated list of positive integers weights for
-the desired discrete distribution.
+where `<num_samples>` is an integer denoting the number of samples to draw,
+satisfying `0 <= num_samples <= 2147483647`;
+and `<distribution>` is a space-separated list of positive integer weights
+for the desired discrete distribution,
+with the total number of elements bounded as `0 < n <= 2147483647`,
+and the sum bounded as `0 < m <= 2147483647`.
 
 For example, to generate 90 samples from { 1, 1, 2, 3, 2 }, run the following:
 
