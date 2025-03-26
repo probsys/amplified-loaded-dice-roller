@@ -25,8 +25,8 @@ struct aldr_s aldr_preprocess(uint32_t* a, uint32_t n) {
     for (uint32_t i = 0; i < n; ++i) {
         m += a[i];
     }
-    uint32_t k = 32 - __builtin_clz(m-1);
-    uint32_t K = k << 1;                   // depth
+    uint8_t k = 32 - __builtin_clz(m-1);
+    uint8_t K = k << 1;              // depth
     uint64_t c = (1ll << K) / m;           // amplification factor
     uint64_t r = (1ll << K) % m;           // reject weight
 
@@ -39,7 +39,7 @@ struct aldr_s aldr_preprocess(uint32_t* a, uint32_t n) {
     uint32_t *leaves_flat = calloc(num_leaves, sizeof(*leaves_flat));
 
     uint32_t location = 0;
-    for(uint32_t j = 0; j <= K; j++) {
+    for(uint8_t j = 0; j <= K; j++) {
         uint64_t bit = (1ll << (K - j));
         if (r & bit) {
             leaves_flat[location] = 0;
