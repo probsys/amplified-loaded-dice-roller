@@ -12,6 +12,6 @@
 
 #include <stdint.h>
 
-uint32_t flip(void);
+uint8_t flip(void);
 
 #endif

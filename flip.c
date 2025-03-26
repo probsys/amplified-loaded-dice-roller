@@ -12,9 +12,9 @@
 
 #include "flip.h"
 
-uint32_t flip_k = 32;
-uint32_t flip_word = 0;
-uint32_t flip_pos = 0;
+uint64_t flip_k = 64;
+uint64_t flip_word = 0;
+uint64_t flip_pos = 0;
 
 void check_refill(void) {
     if (flip_pos == 0) {
@@ -23,7 +23,7 @@ void check_refill(void) {
     }
 }
 
-uint32_t flip(void){
+uint8_t flip(void){
     check_refill();
     --flip_pos;
     return (flip_word >> flip_pos) & 1;
