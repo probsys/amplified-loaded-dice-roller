@@ -40,15 +40,15 @@ struct aldr_s aldr_preprocess(uint32_t* a, uint32_t n) {
 
     uint32_t location = 0;
     for(uint8_t j = 0; j <= K; j++) {
-        uint64_t bit = (1ll << (K - j));
-        if (r & bit) {
+        uint64_t bitmask = (1ll << (K - j));
+        if (r & bitmask) {
             leaves_flat[location] = 0;
             ++breadths[j];
             ++location;
         }
         for (uint32_t i = 0; i < n; ++i) {
             uint64_t Qi = c*a[i];
-            if (Qi & bit) {
+            if (Qi & bitmask) {
                 leaves_flat[location] = i + 1;
                 ++breadths[j];
                 ++location;
